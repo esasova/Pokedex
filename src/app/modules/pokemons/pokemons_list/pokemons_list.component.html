@@ -1,0 +1,18 @@
+<h1 class="title is-size-1 has-text-weight-bold has-text-info has-text-centered my-6">Tous les pokémons</h1>
+<div class="is-flex is-justify-content-center columns">
+  <input type="text" class="input is-info is-normal is-rounded column is-one-third" [(ngModel)]="formSearchPokemon.name" (input)="searchPokemon(formSearchPokemon.name)" />
+</div>
+<div *ngIf="pokemons" class="columns mx-6 my-6 is-multiline">
+  <section *ngFor="let pokemon of pokemons" class="column is-4">
+    <div class="card has-background-warning-light">
+      <div class="card-content">
+       <a routerLink="/pokemons/{{ pokemon.name }}"><p class="title is-6 is-uppercase has-text-weight-bold has-text-centered has-text-success">{{ pokemon.name }}</p></a>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="is-flex is-justify-content-center">
+  <button *ngIf="previous" class="button is-info mx-3" (click)="getMorePokemons(previous)">Previous pokemons</button>
+  <button *ngIf="next" class="button is-info mx-3" (click)="getMorePokemons(next)">More pokemons</button>
+</div>
+

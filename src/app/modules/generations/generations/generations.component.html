@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 class="title is-size-1 has-text-weight-bold has-text-info has-text-centered my-6">Toutes les générations</h1>
+  <div class="menu" *ngIf="generations">
+    <p class="menu-label"> {{ generations.length }} différentes générations : </p>
+    <ul  class="menu-list">
+      <li *ngFor="let generation of generations">
+        <a routerLink="/{{ generation.name }}" class="is-uppercase">{{ generation.name }}</a>
+      </li>
+    </ul>
+
+  </div>
+</div>

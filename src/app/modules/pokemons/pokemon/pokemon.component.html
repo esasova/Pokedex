@@ -1,0 +1,36 @@
+<div class="columns is-flex is-justify-content-center is-align-items-center mt-6">
+  <section *ngIf="pokemon" class="card column is-one-third has-background-light">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
+      </figure>
+    </div>
+    <div class="card-content">
+      <p class="title is-size-2 is-uppercase has-text-centered has-text-info has-text-weight-bold">{{ pokemon.name }}</p>
+      <div class="is-flex is-justify-content-center my-3">
+        <p class="subtitle is-6 mb-0 mx-1 is-size-4">Poids : {{ pokemon.weight }}</p>
+        <p class="subtitle is-6 mb-0 mx-1 is-size-4">Height : {{ pokemon.height }}</p>
+      </div>
+      <div class="is-flex is-justify-content-space-evenly my-3">
+        <div *ngIf="pokemon.abilities.length > 0" class="mx-1">
+          <p class="has-text-weight-bold is-size-4 has-text-info">Aptitudes : </p>
+          <ul >
+            <li *ngFor="let ability of pokemon.abilities">{{ ability.ability.name }}</li>
+          </ul>
+        </div>
+      <div *ngIf="pokemon.held_items.length > 0" class="mx-1">
+        <p class="has-text-weight-bold is-size-4 has-text-info">Objets : </p>
+        <ul >
+          <li *ngFor="let item of pokemon.held_items">{{ item.item.name }}</li>
+        </ul>
+      </div>
+      </div>
+      <div class="my-3" *ngIf="pokemon.moves.length > 0" >
+        <p class="has-text-centered has-text-weight-bold mb-3 is-size-3 has-text-info">Mouvements : </p>
+        <div class="columns is-multiline">
+          <p *ngFor="let move of pokemon.moves" class="column is-one-third pt-0 pb-1">{{ move.move.name }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,24 @@
+<div *ngIf="generation">
+  <h1 class="has-text-centered title is-3 has-text-info mt-6 mb-3 has-text-weight-bold is-uppercase">{{ generation.name }}</h1>
+  <p class="has-text-centered has-text-success is-uppercase mb-3">Main region : {{ generation.main_region.name}}</p>
+  <div class="columns mx-6 my-6 is-flex is-justify-content-center">
+    <section class="column is-3 card has-background-info-light mx-4">
+      <p class="title is-4 has-text-centered has-text-info">Types : </p>
+      <ul>
+        <li *ngFor="let type of generation.types.slice(0, 10)" class="has-text-weight-bold has-text-centered is-size-5">{{ type.name}}</li>
+      </ul>
+    </section>
+    <section class="column is-3 card has-background-success-light mx-4">
+      <p class="title is-4 has-text-centered has-text-success">Pokemons : </p>
+      <ul>
+        <li *ngFor="let pokemon of generation.pokemon_species.slice(0, 10)" class="has-text-weight-bold has-text-centered is-size-5"><a routerLink="/pokemons/{{ pokemon.name }}">{{ pokemon.name}}</a></li>
+      </ul>
+    </section>
+    <section class="column is-3 card has-background-warning-light mx-4">
+      <p class="title is-4 has-text-centered has-text-warning">Moves : </p>
+      <ul>
+        <li *ngFor="let move of generation.moves.slice(0, 10)" class="has-text-weight-bold has-text-centered is-size-5">{{ move.name}}</li>
+      </ul>
+    </section>
+  </div>
+</div>
